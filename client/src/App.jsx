@@ -13,9 +13,11 @@ const App = () => {
   const [behaviours, setBehaviours] = useState([]);
   const [selectedBehaviour, setBehaviour] = useState("1");
   useEffect(() => {
-    axios("http://localhost:8000/behaviours").then((data) => {
-      setBehaviours(data.data);
-    });
+    axios("https://eubrics-todo-assignment.herokuapp.com/behaviours").then(
+      (data) => {
+        setBehaviours(data.data);
+      }
+    );
   }, []);
   const [collapsed, setCollapsed] = useState(false);
   return (
