@@ -4,5 +4,6 @@ const router = express.Router();
 const { getBehaviours } = require('../controllers/behaviours.controller');
 
 router.route('/behaviours').get(getBehaviours);
+// router.route('/behaviours').get(getBehaviours);
 
 module.exports = router;

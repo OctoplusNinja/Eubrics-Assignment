@@ -5,7 +5,7 @@ const getBehaviours = async (req, res) => {
         const allTodos = await pool.query("SELECT * FROM behaviours");
         res.json(allTodos.rows);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 }
 
