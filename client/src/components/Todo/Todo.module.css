@@ -1,0 +1,40 @@
+.checkbox{
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+    border: 1px solid #828282;
+    border-radius: 4px;
+}
+
+.Todo_Completed span{
+    text-decoration: line-through;
+    color: #333;
+}
+
+li{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 24px;
+    justify-content: space-between;
+}
+
+.todo_section{
+    display: flex;
+}
+.button_section
+{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.delete_section svg{
+    height: 1.7rem;
+    width: 1.7rem;
+}
+.delete_section{
+    cursor: pointer;
+    color: #BDBDBD;
+}
