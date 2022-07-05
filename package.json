@@ -4,8 +4,8 @@
   "description": "Server for the Eubricks Assignment",
   "main": "server.js",
   "engines": {
-    "node": "18.4.0",
-    "npm": "8.12.1"
+    "node": "16.14.2",
+    "npm": "8.5.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
