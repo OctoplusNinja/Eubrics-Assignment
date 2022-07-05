@@ -22,7 +22,7 @@ class TodoContainer extends Component {
   async componentDidMount() {
     const todos = await (
       await axios.get(
-        `http://localhost:8000/${this.props.behaviour.tables_name}`
+        `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`
       )
     ).data;
     if (todos && todos.length !== 0) {
@@ -33,7 +33,7 @@ class TodoContainer extends Component {
     if (this.props.behaviour !== prevProp.behaviour) {
       const todos = await (
         await axios.get(
-          `http://localhost:8000/${this.props.behaviour.tables_name}`
+          `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`
         )
       ).data;
       if (todos) {
@@ -49,7 +49,7 @@ class TodoContainer extends Component {
     // let newTodo = { task: todo, completed: false, id: uuidv4() };
     const newTodo = (
       await axios.post(
-        `http://localhost:8000/${this.props.behaviour.tables_name}`,
+        `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`,
         {
           todo,
         }
@@ -63,7 +63,7 @@ class TodoContainer extends Component {
   async deleteTodo(id) {
     const deletedTodo = (
       await axios.delete(
-        `http://localhost:8000/${this.props.behaviour.tables_name}`,
+        `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`,
         {
           data: {
             id,
@@ -76,7 +76,7 @@ class TodoContainer extends Component {
   }
   async deleteAllCompleted() {
     await axios.post(
-      `http://localhost:8000/${this.props.behaviour.tables_name}/deleteCompletedTodo`
+      `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}/deleteCompletedTodo`
     );
     const updatedTodos = this.state.todos.filter((todo) => {
       return !todo.completed;
@@ -86,11 +86,14 @@ class TodoContainer extends Component {
   }
   async updateTodo(todo) {
     // console.log(todo);
-    axios.put(`http://localhost:8000/${this.props.behaviour.tables_name}`, {
-      todo: todo.task,
-      id: todo.id,
-      completed: todo.completed,
-    });
+    axios.put(
+      `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`,
+      {
+        todo: todo.task,
+        id: todo.id,
+        completed: todo.completed,
+      }
+    );
     const updatedTodos = this.state.todos.map((t) => {
       if (t.id === todo.id) {
         return { ...t, task: todo.task };
