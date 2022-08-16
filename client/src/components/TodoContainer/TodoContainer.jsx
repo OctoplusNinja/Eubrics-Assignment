@@ -86,7 +86,7 @@ class TodoContainer extends Component {
   }
   async updateTodo(todo) {
     // console.log(todo);
-    axios.put(
+    await axios.put(
       `https://eubrics-todo-assignment.herokuapp.com/${this.props.behaviour.tables_name}`,
       {
         todo: todo.task,

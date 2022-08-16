@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Todo.module.css";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Modal, Input } from "antd";
+import { Modal, Input, notification } from "antd";
 const { confirm } = Modal;
 
 class Todo extends Component {
@@ -32,11 +32,37 @@ class Todo extends Component {
       cancelText: "Cancel",
       icon: null,
       onOk: () => {
-        this.props.updateTodo(
-          this.props.todo.id,
-          this.state.editInput,
-          this.props.todo.completed
-        );
+        return new Promise((resolve, reject) => {
+          console.log(
+            this.props.updateTodo(
+              this.props.todo.id,
+              this.state.editInput,
+              this.props.todo.completed
+            )
+          );
+          // this.props
+          //   .updateTodo(
+          //     this.props.todo.id,
+          //     this.state.editInput,
+          //     this.props.todo.completed
+          //   )
+          //   .then(() => {
+          //     resolve();
+          //     notification.success({
+          //       message: "Todo Updated",
+          //       description: this.state.editInput,
+          //     });
+          //   })
+          //   .catch(() => {
+          //     console.log("bruh");
+          //     reject();
+          //     notification.error({
+          //       message: "Todo Could not be Edited",
+          //       description: this.state.editInput,
+          //     });
+          //   });
+          // setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+        }).catch(() => console.log("Oops errors!"));
       },
       onCancel: () => {
         this.setState({ editInput: this.props.todo.task });
